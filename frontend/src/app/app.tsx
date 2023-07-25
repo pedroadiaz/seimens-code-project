@@ -7,7 +7,6 @@ import { HomePage } from './pages/homepage';
 export function App() {
   return (
     <div>
-      <h1>React multi carousel</h1>
       <HomePage />
     </div>
   );
