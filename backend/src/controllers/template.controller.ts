@@ -11,7 +11,6 @@ export class TemplateController implements ITemplateController {
     public getTemplates = (req: Request, res: Response): void => {
 
         try {
-
             const templates = this.service.getTemplatesPage();
     
             res.status(200).json(templates);
