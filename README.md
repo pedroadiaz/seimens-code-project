@@ -23,4 +23,8 @@ This is my implementation of the code assignment given to me for the Seimens lea
 
 * Broke down everything into components (at least where it made sense)
 * This includes the thumbnails, the large image and the footer. 
+* In order to run it, you must first create a .env file in the /frontend/src/app directory. It only needs one value in there: 
+    NX_API_URL=http://localhost:5000
+    This is of course assuming you haven't changed the configuration of the backend. 
+* Run "npm run start" to start the application. By default, you can access it at the following URL:  http://localhost:4200 
 
