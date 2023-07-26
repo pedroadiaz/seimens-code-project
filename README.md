@@ -1,43 +1,30 @@
 # README #
 
-This project requires you to develop a website template viewer. The template viewer is modeled after the filmstrip folder view in Windows Explorer.
+This is my implementation of the code assignment given to me for the Seimens lead engineer position
 
-### Technical Requirements ###
+### Installation Requirements ###
 
-* Develop as a Single Page Application
-* Develop both a front-end component and back-end API to retrieve the data.
-* Use a javascript front-end implementation of your choice, some suggestions might be ReactJS, VueJS, or AngularJS
-* Create a back-end API implementation with NodeJS/Express
+* In order to install the backend and the frontend, run "npm install" on both the "backend" and "frontend" folders. 
+* In order to run each, run "npm run start" on both the "backend" and "frontend" folders. 
+* Navigate to "http://localhost:4200" in the browser to open the page
+* The backend will run on port 5000. To retrieve the templates, go to "http://localhost:5000/templates"
 
 ### Reference ###
 ![Example Filmstrip](https://bitbucket.org/repo/kMx7k8n/images/3768382958-2017-09-26_9-09-27.png)
 
-### Feature Requirements ###
+### Backend Code ###
 
-* Display the thumbnail images in a filmstrip view below the main large image
-* Set the thumbnail to have a sliding window with 4 thumbnails visible in the window at a time. 
-* Implement a "next" and "previous" link per the styles provided. The sliding window is not circular, when the first 4 thumbnails appear, the previous link should be disabled. When the end of the thumbnail set is reached, the next link should be disabled.
-  Note: The sliding window may not have a total of 4 thumbnails if the total template count is not evenly divisible by 4. There are 15 templates in the reference data.
-* Example: If there are 15 templates total, then the initial view would show 4 thumbnail images with previous disabled, then clicking "Next" would advance to the next 4 images, next would advance to the next 4, and so on. Finally, there wouild only be 3 images in the sliding window with next disabled and previous enabled.
-* When clicking on a thumbnail, the large image corresponding to that thumbnail should appear in the main window, along with the meta data about that template (ID, Cost, Description, Thumbnail File Name, Image File Name)
-* Per the reference styles and html, the thumbnail image should have a border when selected.
+* Whenever I write production ready backend code, I try to use SOLID principles
+* This is why I am using inversify for dependency injection 
+* Programming to interfaces
+* Writing unit tests
 
-### Reference Data ###
+### Front End ###
 
-* /data/templates.json - Array of templates and meta data
-* /images/large - Large size images of templates
-* /images/thumbnails - Thumbnail images of templates
-* /images/next.png - Button image for next link
-* /images/previous.png - Button image for previous link
-* index.html - reference HTML
-* /style/style.css - reference CSS
+* Broke down everything into components (at least where it made sense)
+* This includes the thumbnails, the large image and the footer. 
+* In order to run it, you must first create a .env file in the /frontend/src/app directory. It only needs one value in there: 
+    NX_API_URL=http://localhost:5000
+    This is of course assuming you haven't changed the configuration of the backend. 
+* Run "npm run start" to start the application. By default, you can access it at the following URL:  http://localhost:4200 
 
-
-### What if I have questions? ###
-
-* Take your interpretation of the requirements. As long as your interpretation is defensible.
-
-### How do I submit the project? ###
-
-* Submit a URL to a public bitbucket repo
-* Make sure to include a readme to document any installation steps to run the project
