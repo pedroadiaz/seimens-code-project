@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 import { Template } from '../models/template';
 import { Thumbnail } from '../components/thumbnail';
 import { LargeImage } from '../components/largeImage';
 import '../styles/style.css?v=2';
 import { Footer } from '../components/footer';
+import { error } from 'console';
 
 export const HomePage = () => {
     const [templates, setTemplates] = useState<Template[]>([]);
@@ -14,26 +13,6 @@ export const HomePage = () => {
     const [currentStart, setCurrentStart] = useState<number>(0);
 
     let start = currentStart;
-
-    const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 4
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 4
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 3
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
-      };
 
     const url = `${process.env.NX_API_URL}/templates`;
     useEffect(() => {
@@ -50,6 +29,7 @@ export const HomePage = () => {
             setDisplayedTemplates(templates.slice(0,4));
             setSelectedTemplate(templates[0]);
         })
+        .catch(error => console.log("There was an error", error))
     }, []);
 
     const onClick = (template: Template) => {
